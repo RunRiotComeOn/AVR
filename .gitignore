@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+*.egg
+dist/
+build/
+.eggs/
+
+# Cache
+.cache/
+.claude/
+
+# Model checkpoints and saves
+saves/
+
+# Logs and temporary files
+*.log
+*.out
+*.err
+wandb/
+runs/
+outputs/
+*.pt
+*.pth
+*.bin
+*.safetensors
+*.gguf
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+fs-grpo_pipeline.sh

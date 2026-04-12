@@ -1,0 +1,49 @@
+### Model Configuration
+model_name_or_path: Qwen/Qwen3-VL-2B-Instruct
+image_max_pixels: 262144
+video_max_pixels: 16384
+trust_remote_code: true
+
+### Training Method
+stage: sft
+do_train: true
+finetuning_type: full
+freeze_vision_tower: true
+freeze_multi_modal_projector: true
+freeze_language_model: false
+deepspeed: examples/deepspeed/ds_z2_config.json
+
+### Dataset Configuration
+# dataset: sft_dataset
+dataset: sft_dataset
+template: qwen3_vl_nothink
+cutoff_len: 2048
+overwrite_cache: true
+preprocessing_num_workers: 32
+dataloader_num_workers: 8
+
+### Output Configuration
+output_dir: saves/qwen3vl-2b/full/vision_sr1_1_epoch_no_st
+logging_steps: 10
+save_steps: 500
+plot_loss: true
+overwrite_output_dir: true
+save_only_model: false
+report_to: tensorboard
+
+### Training Hyperparameters
+per_device_train_batch_size: 4
+gradient_accumulation_steps: 2
+learning_rate: 5.0e-5
+num_train_epochs: 1.0
+lr_scheduler_type: cosine
+warmup_ratio: 0.1
+bf16: true
+ddp_timeout: 180000000
+resume_from_checkpoint: null
+
+### Evaluation (optional - uncomment to enable)
+# val_size: 0.1
+# per_device_eval_batch_size: 1
+# eval_strategy: steps
+# eval_steps: 500
