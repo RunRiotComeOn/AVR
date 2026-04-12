@@ -73,7 +73,7 @@ bash train-sft.sh
 The current script launches:
 
 ```bash
-FORCE_TORCHRUN=1 llamafactory-cli train ../train_configs/qwen3vl_2b_full_sft_all.yaml
+FORCE_TORCHRUN=1 llamafactory-cli train /path/to/AVR/train_configs/qwen3vl_2b_full_sft_all.yaml
 ```
 
 The released repository keeps a single SFT config in [train_configs](train_configs):
@@ -147,6 +147,6 @@ Model checkpoints and parquet data are expected to be prepared separately before
 
 ## Notes
 
-- `train-sft.sh` and several helper scripts contain environment-specific paths that may need to be adjusted before release.
+- Helper scripts now default to repository-relative paths and can be overridden with arguments or environment variables when needed.
 - The repository includes both LLaMA-Factory and `verl` as submodules for reproducibility.
 - The checked-in FS-GRPO reward implementation is the single maintained reward path for this repository.
